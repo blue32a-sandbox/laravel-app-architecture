@@ -9,3 +9,5 @@ RUN apk update \
         git \
         zip \
         unzip
+
+RUN docker-php-ext-install pdo_mysql
