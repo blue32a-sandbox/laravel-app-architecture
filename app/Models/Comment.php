@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -16,13 +16,13 @@ class Post extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
         'content',
         'user_id',
+        'post_id',
     ];
 
-    public function comments(): HasMany
+    public function user(): BelongsTo
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(User::class);
     }
 }
