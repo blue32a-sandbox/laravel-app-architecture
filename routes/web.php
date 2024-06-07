@@ -19,7 +19,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
 
-Route::resource('posts', PostController::class)->middleware('auth');
+Route::resource('posts', PostController::class);
 
 Route::resource('posts.comments', CommentController::class)
     ->only(['store', 'destroy'])
